@@ -11,26 +11,48 @@ import XCTest
 
 class RetirementTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testDescription() {
+        let alanzo = MortalBeing(name: "Alonzo", age: 25, retirementAge: 65)
+        let result = alanzo.description
+        let expected = "You have 39 years left until you can retire.\n Alonzo, it is 2016, so you can retire in 2056."
+        XCTAssertTrue(result == expected)
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    func testJSONInitialization() {
+        let calendar = Calendar(identifier: .gregorian)
+        let alanzo = MortalBeing(name: "Alonzo", age: 25, retirementAge: 65)
+        let alanzoEncodedJSON = try! JSONSerialization.data(withJSONObject: alanzo.jsonRepresentation , options: [])
+        let alanzoDecodedJSON = try! JSONSerialization.jsonObject(with: alanzoEncodedJSON, options: [])
+        let alanzoResurrected = MortalBeing(jsonData: alanzoDecodedJSON as! [String: Any])
+        XCTAssertEqual(calendar.compare(alanzo.birthDate, to: alanzoResurrected.birthDate, toGranularity: .second), ComparisonResult.orderedSame)
+        XCTAssertEqual(calendar.compare(alanzo.retirementDate, to: alanzoResurrected.retirementDate, toGranularity: .second), ComparisonResult.orderedSame)
+        XCTAssertEqual(alanzo.name, alanzoResurrected.name)
+
+        
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testCurrentAge() {
+        let alanzo = MortalBeing(name: "Alonzo", age: 25, retirementAge: 65)
+        let result = alanzo.currentAge
+        let expected = 25
+        XCTAssertEqual(result, expected)
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testRetirementAge() {
+        let alanzo = MortalBeing(name: "Alonzo", age: 25, retirementAge: 65)
+        let result = alanzo.retirementAge
+        let expected = 65
+        XCTAssertEqual(result, expected)
+    }
+    
+    func testSaveAndLoadUsers() {
+        let users = Users()
+        let alanzo = MortalBeing(name: "alonzo", age: 25, retirementAge: 65)
+        let martin = MortalBeing(name: "martin", age: 12, retirementAge: 77)
+        users.addUser(alanzo)
+        users.addUser(martin)
+        let users2 = Users()
+        XCTAssertTrue(users2.people.count == users.people.count)
     }
     
 }

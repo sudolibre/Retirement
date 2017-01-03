@@ -10,6 +10,9 @@
 		E888F9711E12F66C005C1FB9 /* Retirement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E888F9671E12F66C005C1FB9 /* Retirement.framework */; };
 		E888F9761E12F66C005C1FB9 /* RetirementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E888F9751E12F66C005C1FB9 /* RetirementTests.swift */; };
 		E888F9781E12F66C005C1FB9 /* Retirement.h in Headers */ = {isa = PBXBuildFile; fileRef = E888F96A1E12F66C005C1FB9 /* Retirement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E888F9821E12F673005C1FB9 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E888F9811E12F673005C1FB9 /* main.swift */; };
+		E888F9841E12F73C005C1FB9 /* MortalBeing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E888F9831E12F73C005C1FB9 /* MortalBeing.swift */; };
+		E8D5FFF31E13077400647F20 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5FFF21E13077400647F20 /* Users.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +32,9 @@
 		E888F9701E12F66C005C1FB9 /* RetirementTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RetirementTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E888F9751E12F66C005C1FB9 /* RetirementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetirementTests.swift; sourceTree = "<group>"; };
 		E888F9771E12F66C005C1FB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E888F9811E12F673005C1FB9 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		E888F9831E12F73C005C1FB9 /* MortalBeing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MortalBeing.swift; sourceTree = "<group>"; };
+		E8D5FFF21E13077400647F20 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,9 @@
 			isa = PBXGroup;
 			children = (
 				E888F96A1E12F66C005C1FB9 /* Retirement.h */,
+				E888F9811E12F673005C1FB9 /* main.swift */,
+				E8D5FFF21E13077400647F20 /* Users.swift */,
+				E888F9831E12F73C005C1FB9 /* MortalBeing.swift */,
 				E888F96B1E12F66C005C1FB9 /* Info.plist */,
 			);
 			path = Retirement;
@@ -148,6 +157,7 @@
 				TargetAttributes = {
 					E888F9661E12F66C005C1FB9 = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 					E888F96F1E12F66C005C1FB9 = {
@@ -196,6 +206,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E888F9841E12F73C005C1FB9 /* MortalBeing.swift in Sources */,
+				E8D5FFF31E13077400647F20 /* Users.swift in Sources */,
+				E888F9821E12F673005C1FB9 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +333,7 @@
 		E888F97C1E12F66C005C1FB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -331,6 +345,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dayj.Retirement;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -338,6 +353,7 @@
 		E888F97D1E12F66C005C1FB9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -356,6 +372,7 @@
 		E888F97F1E12F66C005C1FB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = RetirementTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dayj.RetirementTests;
@@ -367,6 +384,7 @@
 		E888F9801E12F66C005C1FB9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = RetirementTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dayj.RetirementTests;
@@ -394,6 +412,7 @@
 				E888F97D1E12F66C005C1FB9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E888F97E1E12F66C005C1FB9 /* Build configuration list for PBXNativeTarget "RetirementTests" */ = {
 			isa = XCConfigurationList;
@@ -402,6 +421,7 @@
 				E888F9801E12F66C005C1FB9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
